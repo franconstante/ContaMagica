@@ -14,16 +14,16 @@ public class ContaMagica {
     
     public double getSaldo(){
         return this.saldo;
-    };
+    }
 	
     public int getStatus(){
         return this.status;
-    };
+    }
     
     public void setStatus(String operacao) { 
 
         switch(this.getStatus()){
-            case this.SILVER:
+            case SILVER:
                 //checa upgrade
                 if(operacao.equals("deposito")){
                     if(this.getSaldo() >= 50000)
@@ -31,7 +31,7 @@ public class ContaMagica {
                 }
             break;
 
-            case this.GOLD:
+            case GOLD:
                //checa upgrade
                if(operacao.equals("deposito")){
                     if(this.getSaldo() >= 200000){ 
@@ -46,21 +46,20 @@ public class ContaMagica {
                 else if(operacao.equals("retirada")){  
                    if(this.getSaldo() < 25000){ 
                         this.status = this.SILVER;  
-                   
                     }
                 }
             break;
 
-            case this.PLATINUM:
+            case PLATINUM:
                 //checa downgrade
                 if(operacao.equals("retirada")){  
                     if(this.getSaldo() < 100000){ 
                         this.status = this.GOLD;  
                     }
-                
+                }
             break;
-        }
         
+        }
     } 
 
     //void deposito(int valor) throws INVALID_OPER_EXCEPTION;
