@@ -20,28 +20,46 @@ public class ContaMagica {
         return this.status;
     };
     
-    public void setStatus(int operacao) { 
+    public void setStatus(String operacao) { 
 
         switch(this.getStatus()){
             case this.SILVER:
+                //checa upgrade
+                if(operacao.equals("deposito")){
+                    if(this.getSaldo() >= 50000)
+                        this.status = this.GOLD; 
+                }
             break;
 
             case this.GOLD:
+               //checa upgrade
+               if(operacao.equals("deposito")){
+                    if(this.getSaldo() >= 200000){ 
+                        //não pode ir direto de silver pra platinum
+                        if(this.getStatus() == this.SILVER)
+                            this.status = this.GOLD; 
+                        else
+                            this.status = this.PLATINUM; 
+                    }
+                }
+                //checa downgrade
+                else if(operacao.equals("retirada")){  
+                   if(this.getSaldo() < 25000){ 
+                        this.status = this.SILVER;  
+                   
+                    }
+                }
             break;
 
             case this.PLATINUM:
+                //checa downgrade
+                if(operacao.equals("retirada")){  
+                    if(this.getSaldo() < 100000){ 
+                        this.status = this.GOLD;  
+                    }
+                
             break;
-        } 
-
-        if ((this.getSaldo() >= 50000 && this.getStatus() == this.SILVER) || (this.getSaldo() < 100000 && this.getStatus() == this.PLATINUM)) { 
-            this.status = this.GOLD; 
-        } else if (this.getSaldo() >= 200000 && this.getStatus() == this.GOLD) { 
-            this.status = this.PLATINUM; 
-        } else if (this.getSaldo() < 25000 && this.getStatus() == this.GOLD) { 
-            this.status = this.SILVER; 
-        } else { 
-        
-        this.status = this.getStatus(); 
+        }
         
     } 
 
