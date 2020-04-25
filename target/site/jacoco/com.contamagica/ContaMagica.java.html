@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContaMagica.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">ContaMagica</a> &gt; <a href="index.source.html" class="el_package">com.contamagica</a> &gt; <span class="el_source">ContaMagica.java</span></div><h1>ContaMagica.java</h1><pre class="source lang-java linenums">package com.contamagica;
+
+public class ContaMagica {
+    public static final int SILVER = 0;
+    public static final int GOLD = 1;
+    public static final int PLATINUM = 2;
+    private double saldo;
+    private int status;
+
+<span class="nc" id="L10">    public ContaMagica(){</span>
+<span class="nc" id="L11">        this.saldo = 0;</span>
+<span class="nc" id="L12">        this.status = SILVER;</span>
+<span class="nc" id="L13">    }</span>
+    
+    public double getSaldo(){
+<span class="nc" id="L16">        return this.saldo;</span>
+    }
+    
+    public void setSaldo(double valor){
+<span class="nc" id="L20">        this.saldo += valor;</span>
+<span class="nc" id="L21">    }</span>
+
+    public int getStatus(){
+<span class="nc" id="L24">        return this.status;</span>
+    }
+    
+    public void setStatus(String operacao) { 
+
+<span class="nc bnc" id="L29" title="All 4 branches missed.">        switch(this.getStatus()){</span>
+            case SILVER:
+                //checa upgrade
+<span class="nc bnc" id="L32" title="All 2 branches missed.">                if(operacao.equals(&quot;deposito&quot;)){</span>
+<span class="nc bnc" id="L33" title="All 2 branches missed.">                    if(this.getSaldo() &gt;= 50000)</span>
+<span class="nc" id="L34">                        this.status = this.GOLD; </span>
+                }
+            break;
+
+            case GOLD:
+               //checa upgrade
+<span class="nc bnc" id="L40" title="All 2 branches missed.">               if(operacao.equals(&quot;deposito&quot;)){</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">                    if(this.getSaldo() &gt;= 200000){ </span>
+                        //não pode ir direto de silver pra platinum
+<span class="nc bnc" id="L43" title="All 2 branches missed.">                        if(this.getStatus() == this.SILVER)</span>
+<span class="nc" id="L44">                            this.status = this.GOLD; </span>
+                        else
+<span class="nc" id="L46">                            this.status = this.PLATINUM; </span>
+                    }
+                }
+                //checa downgrade
+<span class="nc bnc" id="L50" title="All 2 branches missed.">                else if(operacao.equals(&quot;retirada&quot;)){  </span>
+<span class="nc bnc" id="L51" title="All 2 branches missed.">                   if(this.getSaldo() &lt; 25000){ </span>
+<span class="nc" id="L52">                        this.status = this.SILVER;  </span>
+                    }
+                }
+            break;
+
+            case PLATINUM:
+                //checa downgrade
+<span class="nc bnc" id="L59" title="All 2 branches missed.">                if(operacao.equals(&quot;retirada&quot;)){  </span>
+<span class="nc bnc" id="L60" title="All 2 branches missed.">                    if(this.getSaldo() &lt; 100000){ </span>
+<span class="nc" id="L61">                        this.status = this.GOLD;  </span>
+                    }
+                }
+            break;
+        
+        }
+<span class="nc" id="L67">    } </span>
+
+    void deposito(int valor) throws INVALID_OPER_EXCEPTION{
+<span class="nc bnc" id="L70" title="All 4 branches missed.">            switch(this.getStatus()){ </span>
+                case SILVER:
+<span class="nc" id="L72">                    this.setSaldo(valor);</span>
+<span class="nc" id="L73">                break;</span>
+
+                case GOLD:
+<span class="nc" id="L76">                    this.setSaldo(valor*1.1);</span>
+<span class="nc" id="L77">                break;</span>
+
+                case PLATINUM:
+<span class="nc" id="L80">                    this.setSaldo(valor*1.25); </span>
+                break;
+            } 
+<span class="nc" id="L83">            this.setStatus(&quot;deposito&quot;);        </span>
+<span class="nc" id="L84">    }</span>
+
+    void retirada(int valor) throws INVALID_OPER_EXCEPTION{
+<span class="nc" id="L87">        this.setSaldo(-valor);</span>
+<span class="nc" id="L88">        this.setStatus(&quot;retirada&quot;);</span>
+<span class="nc" id="L89">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

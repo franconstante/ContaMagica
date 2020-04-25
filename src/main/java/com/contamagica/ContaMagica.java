@@ -80,7 +80,6 @@ public class ContaMagica {
                     this.setSaldo(valor*1.25); 
                 break;
             } 
-            
             this.setStatus("deposito");        
     }
 
