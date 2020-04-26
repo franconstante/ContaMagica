@@ -60,7 +60,10 @@ public class ContaMagica {
             break;
         
         }
-    } 
+    }
+
+	public void deposito(int i) {
+	} 
 
     //void deposito(int valor) throws INVALID_OPER_EXCEPTION;
 

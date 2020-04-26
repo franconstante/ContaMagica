@@ -19,7 +19,7 @@ VerificaDowngrade: Saldo = 200.000,00; Saque = 150.000,00 / Saldo < 100.000,00; 
 	               Saldo = 50.000,00; Saque = 30.000,00 / Saldo < 25.000,00; Status = Silver
 	               Saldo = 150.000,00; Saque = 130.000,00 / Saldo < 25.000,00; Status = Gold
 	               Saldo = 20.000,00; Saque = 5.000,00 / Saldo < 25.000,00; Status = Silver
-	               Saldo = 15.000,00; Saque = 15.001,00 / Saldo < 0; Status = Erro 
+	               Saldo = 15.000,00; Saque = 15.001,00 / Saldo < 0; Status = Erromvn 
 
 Relatórios de defeitos (até que todos foram eliminados)
 
