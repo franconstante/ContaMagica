@@ -9,10 +9,4 @@ public class INVALID_OPER_EXCEPTION extends Exception{
         super();
         this.valor = valor;
     }
-
-    @Override
-    public String toString() {
-        return "Nao foi possivel realizar a operacao com o valor " + this.valor;
-    }
-
 }

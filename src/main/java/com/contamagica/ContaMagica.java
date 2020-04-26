@@ -39,11 +39,7 @@ public class ContaMagica {
                //checa upgrade
                if(operacao.equals("deposito")){
                     if(this.getSaldo() >= 200000){ 
-                        //não pode ir direto de silver pra platinum
-                        if(this.getStatus() == SILVER)
-                            this.status = GOLD; 
-                        else
-                            this.status = PLATINUM; 
+                        this.status = PLATINUM; 
                     }
                 }
                 //checa downgrade

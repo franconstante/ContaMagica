@@ -37,64 +37,60 @@ public class ContaMagica {
 
             case GOLD:
                //checa upgrade
-<span class="pc bpc" id="L40" title="1 of 2 branches missed.">               if(operacao.equals(&quot;deposito&quot;)){</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">               if(operacao.equals(&quot;deposito&quot;)){</span>
 <span class="fc bfc" id="L41" title="All 2 branches covered.">                    if(this.getSaldo() &gt;= 200000){ </span>
-                        //não pode ir direto de silver pra platinum
-<span class="pc bpc" id="L43" title="1 of 2 branches missed.">                        if(this.getStatus() == SILVER)</span>
-<span class="nc" id="L44">                            this.status = GOLD; </span>
-                        else
-<span class="fc" id="L46">                            this.status = PLATINUM; </span>
+<span class="fc" id="L42">                        this.status = PLATINUM; </span>
                     }
                 }
                 //checa downgrade
-<span class="nc bnc" id="L50" title="All 2 branches missed.">                else if(operacao.equals(&quot;retirada&quot;)){  </span>
-<span class="nc bnc" id="L51" title="All 2 branches missed.">                   if(this.getSaldo() &lt; 25000){ </span>
-<span class="nc" id="L52">                        this.status = SILVER;  </span>
+<span class="pc bpc" id="L46" title="1 of 2 branches missed.">                else if(operacao.equals(&quot;retirada&quot;)){  </span>
+<span class="pc bpc" id="L47" title="1 of 2 branches missed.">                   if(this.getSaldo() &lt; 25000){ </span>
+<span class="fc" id="L48">                        this.status = SILVER;  </span>
                     }
                 }
             break;
 
             case PLATINUM:
                 //checa downgrade - so pode ir pra gold
-<span class="pc bpc" id="L59" title="1 of 2 branches missed.">                if(operacao.equals(&quot;retirada&quot;)){  </span>
-<span class="nc bnc" id="L60" title="All 2 branches missed.">                    if(this.getSaldo() &lt; 100000){ </span>
-<span class="nc" id="L61">                        this.status = GOLD;  </span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">                if(operacao.equals(&quot;retirada&quot;)){  </span>
+<span class="pc bpc" id="L56" title="1 of 2 branches missed.">                    if(this.getSaldo() &lt; 100000){ </span>
+<span class="fc" id="L57">                        this.status = GOLD;  </span>
                     }
                 }
             break;
         
         }
-<span class="fc" id="L67">    } </span>
+<span class="fc" id="L63">    } </span>
 
     void deposito(int valor) throws INVALID_OPER_EXCEPTION{
 
-<span class="fc bfc" id="L71" title="All 2 branches covered.">            if(valor &lt;= 0)</span>
-<span class="fc" id="L72">                throw(new INVALID_OPER_EXCEPTION(valor)); </span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">            if(valor &lt;= 0)</span>
+<span class="fc" id="L68">                throw(new INVALID_OPER_EXCEPTION(valor)); </span>
 
-<span class="pc bpc" id="L74" title="1 of 4 branches missed.">            switch(this.getStatus()){ </span>
+<span class="pc bpc" id="L70" title="1 of 4 branches missed.">            switch(this.getStatus()){ </span>
                 case SILVER:
-<span class="fc" id="L76">                    this.setSaldo(valor);</span>
-<span class="fc" id="L77">                break;</span>
+<span class="fc" id="L72">                    this.setSaldo(valor);</span>
+<span class="fc" id="L73">                break;</span>
 
                 case GOLD:
-<span class="fc" id="L80">                    this.setSaldo(valor*1.01);</span>
-<span class="fc" id="L81">                break;</span>
+<span class="fc" id="L76">                    this.setSaldo(valor*1.01);</span>
+<span class="fc" id="L77">                break;</span>
 
                 case PLATINUM:
-<span class="fc" id="L84">                    this.setSaldo(valor*1.025); </span>
+<span class="fc" id="L80">                    this.setSaldo(valor*1.025); </span>
                 break;
             } 
-<span class="fc" id="L87">            this.setStatus(&quot;deposito&quot;);        </span>
-<span class="fc" id="L88">    }</span>
+<span class="fc" id="L83">            this.setStatus(&quot;deposito&quot;);        </span>
+<span class="fc" id="L84">    }</span>
 
     void retirada(int valor) throws INVALID_OPER_EXCEPTION{
         //garante que conta nao fica zerada
-<span class="pc bpc" id="L92" title="1 of 4 branches missed.">        if(this.getSaldo() &lt; valor || valor &lt;= 0)</span>
-<span class="fc" id="L93">            throw(new INVALID_OPER_EXCEPTION(valor));</span>
+<span class="fc bfc" id="L88" title="All 4 branches covered.">        if(this.getSaldo() &lt; valor || valor &lt;= 0)</span>
+<span class="fc" id="L89">            throw(new INVALID_OPER_EXCEPTION(valor));</span>
 
-<span class="nc" id="L95">        this.setSaldo(-valor);</span>
-<span class="nc" id="L96">        this.setStatus(&quot;retirada&quot;);</span>
-<span class="nc" id="L97">    }</span>
+<span class="fc" id="L91">        this.setSaldo(-valor);</span>
+<span class="fc" id="L92">        this.setStatus(&quot;retirada&quot;);</span>
+<span class="fc" id="L93">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
