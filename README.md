@@ -1,7 +1,7 @@
 Tarefa Teste Unitário
 
-Casos de teste 
-- Foram utilizadas as técnicas de Particionamento do espaço de entrada e valor limite: 
+- Casos de teste 
+Foram utilizadas as técnicas de Particionamento do espaço de entrada e valor limite: 
 
     VerificaCategoria: 
 
@@ -23,14 +23,14 @@ Casos de teste
     9. verificaRetiradaDowngradePlatinumSilver: Saldo = 200.000,00; Saque = 175.501,00: Status = Platinum / Status = Gold
 
     Extras:
-    
+
     10. verificaUpgradeDiretoSilverPlatinum: Saldo = 1.000,00; Depósito = 250.000,00 / Status = Gold
     11. verificaOperacaoRetiradaNegativa: retirada = -1000 / trow INVALID_OPER_EXCEPTION 
     12. verificaOperacaoDepositoNegativa: deposito = -1 / trow INVALID_OPER_EXCEPTION
     13. verificaSaldoNegativo: Saldo = 1.000,00; retirada = 20.000,00 / trow INVALID_OPER_EXCEPTION 
 
 
-Relatórios de defeitos (até que todos foram eliminados)
+- Relatórios de defeitos (até que todos foram eliminados)
 
 Na primeira bateria de testes implementados foram encontradas 3 falhas: 
 
@@ -52,7 +52,7 @@ Motivo: Erro de lógica, estava adicionando 10% e 25% respectivamente ao invés 
 Ação: corrigido código: this.setSaldo(valor*1.01); e this.setSaldo(valor*1.025);
 
 
-Análise de cobertura do código
+- Análise de cobertura do código
 
 Analisando a cobertura de testes, verificou-se 97%, faltando cobertura para: 
 1.                         //não pode ir direto de silver pra platinum
@@ -61,7 +61,7 @@ Analisando a cobertura de testes, verificou-se 97%, faltando cobertura para:
 
 Foi identificado erro de lógica, não precisa desse trecho de código visto que está em um case GOLD. Corrigido e assim obtivemos 100% de cobertura.
 
-Novos casos de teste acrescentados (com justificativa) ou justificativa para a não necessidade de acrescentar casos de teste.
+- Novos casos de teste acrescentados (com justificativa) ou justificativa para a não necessidade de acrescentar casos de teste.
 
 Durante a analise dos testes de acordo com especificacao foram identificados para adicionar: 
 
