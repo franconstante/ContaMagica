@@ -1,6 +1,7 @@
 Tarefa Teste Unitário
 
 - Casos de teste 
+
 Foram utilizadas as técnicas de Particionamento do espaço de entrada e valor limite: 
 
     VerificaCategoria: 
