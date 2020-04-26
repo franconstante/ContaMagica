@@ -4,22 +4,26 @@ Casos de teste
 - Foram utilizadas as técnicas de Particionamento do espaço de entrada e valor limite: 
 
     VerificaCategoria: 
+
     1. verificaCategoriaGold: Saldo < 50.000,00; Status = Silver 
     2. verificaCategoriaGold: Saldo >= 50.000,00; Status = Gold 
     3. verificaCategoriaPlatinum: Saldo >= 200.000,00; Status = Platinum
 
 
     VerificaSaldoUpgrade: 
+
     4. verificaAcrescimoSaldoUpgradeSilver: Saldo = 10.000,00; Depósito = 1.000,00 / Saldo = 11.000,00; Status = Silver 
     5. verificaAcrescimoSaldoUpgradeGold: Saldo = 60.000,00; Depósito = 1.000,00 / Saldo = saldo + 1.010,00; Status = Gold 
     6. verificaAcrescimoSaldoUpgradePlatinum: Saldo = 250.000,00; Depósito = 1000,00 / Saldo = saldo + 1.025,00; Status = Platinum
 
     VerificaSaldoRetiradaDowngrade:
+
     7. verificaRetiradaDowngradeGoldSilver: Saldo = 75.000,00; Saque = 50.001,00: Status = Gold / Saldo = 24.999,00; Status = Silver
     8. verificaRetiradaDowngradePlatinumGold: Saldo = 200.000,00; Saque = 100.501,00: Status = Platinum / Saldo = 99.999,00; Status = Gold
     9. verificaRetiradaDowngradePlatinumSilver: Saldo = 200.000,00; Saque = 175.501,00: Status = Platinum / Status = Gold
 
     Extras:
+    
     10. verificaUpgradeDiretoSilverPlatinum: Saldo = 1.000,00; Depósito = 250.000,00 / Status = Gold
     11. verificaOperacaoRetiradaNegativa: retirada = -1000 / trow INVALID_OPER_EXCEPTION 
     12. verificaOperacaoDepositoNegativa: deposito = -1 / trow INVALID_OPER_EXCEPTION
